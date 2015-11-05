@@ -1,0 +1,5 @@
+1.0.1:
+    - First version of Events
+    - create_calendars_table.php
+    - create_events_table.php
+    - create_dates_table.php
