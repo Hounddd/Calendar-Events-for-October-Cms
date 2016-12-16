@@ -21,7 +21,7 @@ class Event extends Model
     /**
      * @var array Fillable fields
      */
-    protected $fillable = [];
+    protected $fillable = ['name', 'slug', 'detail', 'calendar_id', 'course_id'];
 
     protected $dates = ['start_at', 'ends_at', 'created_at', 'updated_at'];
 

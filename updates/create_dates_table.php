@@ -13,9 +13,9 @@ class CreateDatesTable extends Migration
             $table->increments('id');
             $table->string('title')->nullable();
             $table->string('url')->nullable();
-            $table->date('date');
-            $table->time('time_init');
-            $table->time('time_end');
+            $table->date('date')->nullable();
+            $table->time('time_init')->nullable();
+            $table->time('time_end')->nullable();
             $table->integer('event_id')->default(0);
             $table->timestamps();
         });

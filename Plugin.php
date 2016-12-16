@@ -61,13 +61,13 @@ class Plugin extends PluginBase
                         'label' => 'Events',
                         'icon' => 'icon-list',
                         'url' => \Backend::url('jorgeandrade/events/events'),
-                        'permissions' => ['jorgeandrade.events.events'],
+                        'permissions' => ['jorgeandrade.events.access_events'],
                     ],
                     'calendars' => [
                         'label' => 'Calendars',
                         'icon' => 'icon-calendar',
                         'url' => \Backend::url('jorgeandrade/events/calendars'),
-                        'permissions' => ['jorgeandrade.events.calendars'],
+                        'permissions' => ['jorgeandrade.events.access_calendars'],
                     ],
                 ],
 

@@ -16,7 +16,7 @@ columns:
         type: datetime
     calendar:
         label: Calendar
-        type: relation
+        relation: calendar
         select: name
     is_allday:
         label: All Day
