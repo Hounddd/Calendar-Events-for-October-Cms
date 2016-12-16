@@ -13,7 +13,7 @@ class CreateCalendarsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('slug')->unique();
-            $table->integer('is_active');
+            $table->integer('is_active')->default(1);
             $table->timestamps();
         });
     }

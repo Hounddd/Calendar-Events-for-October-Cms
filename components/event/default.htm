@@ -1,3 +1,11 @@
-<p>This is the default markup for component Event</p>
-
-<small>You can delete this file if you want</small>
+<div class="event-item">
+    <p class="date-label">
+        <span class="month">{{event.start_at | date('M') }}</span>
+        <span class="date-number">{{event.start_at | date('d') }}</span>
+    </p>
+    <div class="details">
+        <h2 class="title">{{event.name}}</h2>
+        <p class="time"><i class="fa fa-clock-o"></i>{{event.start_at | date('H:i a') }} - {{event.end_at | date('H:i a') }}</p>
+        <p class="location"><i class="fa fa-map-marker"></i> {{event.address}}</p>
+    </div><!--//details-->
+</div><!--event-item-->
