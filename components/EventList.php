@@ -5,6 +5,7 @@ use JorgeAndrade\Events\Models\Calendar;
 
 class EventList extends ComponentBase
 {
+    public $locale = 'en';
 
     public function componentDetails()
     {
@@ -49,6 +50,10 @@ class EventList extends ComponentBase
 
     public function onRun()
     {
+        // Get current locale if rainlab.translate plugin is installed
+        if (class_exists('\RainLab\Translate\Classes\Translator')) {
+            $this->locale = \RainLab\Translate\Classes\Translator::instance()->getLocale();
+        }
 
         $this->noEventMessage = $this->page['noEventMessage'] = $this->property('noEventMessage');
         $this->events = $this->page['events'] = $this->listEvents();
