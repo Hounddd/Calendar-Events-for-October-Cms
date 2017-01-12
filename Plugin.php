@@ -1,5 +1,7 @@
 <?php namespace JorgeAndrade\Events;
 
+use Event;
+use Cms\Classes\Controller;
 use System\Classes\PluginBase;
 
 /**
@@ -7,6 +9,19 @@ use System\Classes\PluginBase;
  */
 class Plugin extends PluginBase
 {
+    /**
+     * Adds date translation to the plugin
+     */
+    public function boot()
+    {
+        Event::Listen('cms.page.beforeDisplay', function (Controller $controller, $url, $page) {
+            $twigIntlExtension = new \Twig_Extensions_Extension_Intl();
+
+            if (! $controller->getTwig()->hasExtension($twigIntlExtension->getName())) {
+                $controller->getTwig()->addExtension($twigIntlExtension);
+            }
+        });
+    }
 
     /**
      * Returns information about this plugin.
@@ -61,13 +76,13 @@ class Plugin extends PluginBase
                         'label' => 'Events',
                         'icon' => 'icon-list',
                         'url' => \Backend::url('jorgeandrade/events/events'),
-                        'permissions' => ['jorgeandrade.events.events'],
+                        'permissions' => ['jorgeandrade.events.access_events'],
                     ],
                     'calendars' => [
                         'label' => 'Calendars',
                         'icon' => 'icon-calendar',
                         'url' => \Backend::url('jorgeandrade/events/calendars'),
-                        'permissions' => ['jorgeandrade.events.calendars'],
+                        'permissions' => ['jorgeandrade.events.access_calendars'],
                     ],
                 ],
 

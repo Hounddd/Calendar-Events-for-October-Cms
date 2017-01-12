@@ -13,15 +13,15 @@ class CreateEventsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('slug');
-            $table->longText('detail');
-            $table->text('excerpt');
+            $table->longText('detail')->nullable();
+            $table->text('excerpt')->nullable();
             $table->text('address')->nullable();
             $table->text('lat_long')->nullable();
-            $table->integer('status');
+            $table->integer('status')->default(1);
             $table->boolean('is_allday')->default(false);
-            $table->integer('calendar_id');
-            $table->timestamp('start_at');
-            $table->timestamp('ends_at');
+            $table->integer('calendar_id')->default(1);
+            $table->timestamp('start_at')->nullable();
+            $table->timestamp('ends_at')->nullable();
             $table->timestamps();
         });
     }
