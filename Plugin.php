@@ -1,7 +1,7 @@
 <?php namespace JorgeAndrade\Events;
 
-use Event;
 use Cms\Classes\Controller;
+use Event;
 use System\Classes\PluginBase;
 
 /**
@@ -15,10 +15,12 @@ class Plugin extends PluginBase
     public function boot()
     {
         Event::Listen('cms.page.beforeDisplay', function (Controller $controller, $url, $page) {
-            $twigIntlExtension = new \Twig_Extensions_Extension_Intl();
+            if (extension_loaded('intl')) {
+                $twigIntlExtension = new \Twig_Extensions_Extension_Intl();
 
-            if (! $controller->getTwig()->hasExtension($twigIntlExtension->getName())) {
-                $controller->getTwig()->addExtension($twigIntlExtension);
+                if (!$controller->getTwig()->hasExtension($twigIntlExtension->getName())) {
+                    $controller->getTwig()->addExtension($twigIntlExtension);
+                }
             }
         });
     }
