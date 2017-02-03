@@ -9,5 +9,8 @@
             "name": "Jorge Andrade",
             "email": "j.andrade.dev@gmail.com"
         }
-    ]
+    ],
+    "require-dev": {
+        "phpspec/phpspec": "^3.2"
+    }
 }
