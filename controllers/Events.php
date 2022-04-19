@@ -25,7 +25,7 @@ class Events extends Controller
         parent::__construct();
 
         BackendMenu::setContext('JorgeAndrade.Events', 'events', 'events');
-        $this->addJs('http://maps.google.com/maps/api/js?sensor=false&amp;language=en');
+        $this->addJs('http://maps.google.com/maps/api/js?language=en');
         $this->addJs('/plugins/jorgeandrade/events/assets/js/gmap3.min.js');
         $this->addJs('/plugins/jorgeandrade/events/assets/js/events.location.js');
     }
