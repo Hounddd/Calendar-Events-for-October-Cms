@@ -7,7 +7,7 @@
     <!--</p>-->
     <div class="details">
         <h2 class="title">{{event.name}}</h2>
-        <p class="time"><i class="fa fa-clock-o"></i> {{event.start_at | localizeddate('long', 'none', locale) }}</p>
+        <p class="time"><i class="fa fa-clock-o"></i> {{event.start_at | date('M')}}</p>
         {% if event.address is not empty %}
         <p class="location"><i class="fa fa-map-marker"></i> {{event.address}}</p>
         {% endif %}
